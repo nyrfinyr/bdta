@@ -1,0 +1,12 @@
+name: bdta_env               
+dependencies:
+  - python=3.12              # Fissa la versione di Python
+  - jupyter                  # Per il server notebook
+  - ipykernel                # Per collegarlo a VS Code
+  - pandas                   # Per i dati
+  - matplotlib               # Per i grafici
+  - seaborn                  # Per grafici più belli
+  - scikit-learn             # Per il machine learning
+  - pip                      # Pip serve per installare cose che non esistono su Conda
+  - pip:
+    - opendatasets           # Esempio: librerie che trovi solo su pip
