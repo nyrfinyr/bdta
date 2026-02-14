@@ -7,3 +7,4 @@
 * [hotel bookings (esame del 30-01-26)](exams/260130/hotel-bookings.ipynb)
 * [bank marketing (esame del 08-01-26)](exams/260108/bank-marketing.ipynb)
 * [loan default (esame del 18-02-25)](exams/250218/loan-default.ipynb)
+* [diamonds (esame del 01-25)](exams/250110/diamonds.ipynb)
