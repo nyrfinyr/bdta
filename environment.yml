@@ -8,6 +8,7 @@ dependencies:
   - seaborn                  
   - scikit-learn             
   - kagglehub
+  - nltk
   - pip
   - pip:
     - opendatasets
