@@ -6,6 +6,7 @@
 * [bank marketing (esame del 08-01-26)](exams/260108/bank-marketing.ipynb)
 * [loan default (esame del 18-02-25)](exams/250218/loan-default.ipynb)
 * [diamonds (esame del 01-25)](exams/250110/diamonds.ipynb)
+* [bank dropout (esame del 10-09-24)](exams/240910/bank-dropout.ipynb)
 
 ---
 
@@ -32,6 +33,7 @@ Controllare `df.index.size`, `df.isna().any().any()`, `df.groupby(target).count(
 * [LD — P1 Q1](exams/250218/loan-default.ipynb#p1-q1)
 * [DI — P1 Q1](exams/250110/diamonds.ipynb#p1-q1)
 * [HD — Q1](colab_2025/8-Esercitazioni/Fairness%20and%20explainability/hiring-decisions.ipynb#q1)
+* [BD — P1 Q1](exams/240910/bank-dropout.ipynb#p1-q1)
 
 #### Feature engineering (nuove colonne calcolate)
 Creare colonne derivate per l'analisi (es. somma, rapporto, volume).
@@ -39,6 +41,7 @@ Creare colonne derivate per l'analisi (es. somma, rapporto, volume).
 * [LD — P1 Q2](exams/250218/loan-default.ipynb#p1-q2) — `ratio = loan_amount / property_value`
 * [DI — P1 Q2](exams/250110/diamonds.ipynb#p1-q2) — `Volume = Length * Width * Height`
 * [DI — P1 Q4](exams/250110/diamonds.ipynb#p1-q4) — `Price_Carat = Price / Carat`
+* [BD — P2 Q4](exams/240910/bank-dropout.ipynb#p2-q4) — `engineered = (EstimatedSalary * Tenure + Balance) / 2`
 
 #### Discretizzazione con `pd.cut` / `pd.qcut`
 `pd.cut` divide in intervalli equispaziati, `pd.qcut` in quantili con uguale numerosita.
@@ -46,6 +49,9 @@ Creare colonne derivate per l'analisi (es. somma, rapporto, volume).
 * [BM — P1 Q3](exams/260108/bank-marketing.ipynb#p1-q3) — `pd.cut` su `hours.per.week`, bin manuali
 * [LD — P1 Q3](exams/250218/loan-default.ipynb#p1-q3) — `pd.cut` su `Credit_Score` e `income`, 5 bin
 * [DI — P1 Q3](exams/250110/diamonds.ipynb#p1-q3) — `pd.qcut` su `Carat Weight`, q=5
+* [BD — P1 Q2](exams/240910/bank-dropout.ipynb#p1-q2) — `pd.qcut` su `Age`, q=5
+* [BD — P1 Q3](exams/240910/bank-dropout.ipynb#p1-q3) — `pd.cut` su `EstimatedSalary`, 5 bin
+* [BD — P2 Q4](exams/240910/bank-dropout.ipynb#p2-q4) — `pd.cut` su `engineered`, 10 bin
 
 #### Tabelle pivot
 `pd.pivot_table(data, index, columns, values, aggfunc)` per analisi incrociate.
@@ -53,6 +59,7 @@ Creare colonne derivate per l'analisi (es. somma, rapporto, volume).
 * [BM — P1 Q3](exams/260108/bank-marketing.ipynb#p1-q3)
 * [LD — P1 Q3](exams/250218/loan-default.ipynb#p1-q3)
 * [DI — P1 Q3](exams/250110/diamonds.ipynb#p1-q3)
+* [BD — P1 Q3](exams/240910/bank-dropout.ipynb#p1-q3)
 
 #### Visualizzazioni
 `lineplot`, `barplot`, `boxplot`, `regplot` di seaborn per esplorare relazioni.
@@ -62,6 +69,8 @@ Creare colonne derivate per l'analisi (es. somma, rapporto, volume).
 * [LD — P1 Q4](exams/250218/loan-default.ipynb#p1-q4) — `regplot`
 * [DI — P1 Q2](exams/250110/diamonds.ipynb#p1-q2) — `regplot`
 * [DI — P1 Q4](exams/250110/diamonds.ipynb#p1-q4) — `boxplot`
+* [BD — P1 Q2](exams/240910/bank-dropout.ipynb#p1-q2) — `barplot`
+* [BD — P1 Q4](exams/240910/bank-dropout.ipynb#p1-q4) — `histplot`
 
 ---
 
@@ -74,6 +83,7 @@ Drop colonne inutili, `dropna`, `drop_duplicates`, soglia 50% null (`dropna(axis
 * [BM — P2 Q1](exams/260108/bank-marketing.ipynb#p2-q1)
 * [LD — P2 Q1](exams/250218/loan-default.ipynb#p2-q1)
 * [DI — P2 Q1](exams/250110/diamonds.ipynb#p2-q1)
+* [BD — P2 Q1](exams/240910/bank-dropout.ipynb#p2-q1)
 
 #### One-Hot Encoding
 `pd.get_dummies` (fuori pipeline) oppure `OneHotEncoder` (dentro pipeline/ColumnTransformer).
@@ -84,6 +94,7 @@ Drop colonne inutili, `dropna`, `drop_duplicates`, soglia 50% null (`dropna(axis
 * [DI — P2 Q1](exams/250110/diamonds.ipynb#p2-q1) — `pd.get_dummies`
 * [DI — P2 Q6](exams/250110/diamonds.ipynb#p2-q6) — `OneHotEncoder` in pipeline
 * [TI — Titanic](colab_2025/7-Sklearn%20advanced/esercizi/7_home_exercise_titanic.ipynb#titanic) — `OneHotEncoder` in pipeline
+* [BD — P2 Q1](exams/240910/bank-dropout.ipynb#p2-q1) — `pd.get_dummies`
 
 #### LabelEncoder
 Trasforma target categorico multiclasse in numeri interi.
@@ -98,6 +109,7 @@ Trasforma target categorico multiclasse in numeri interi.
 * [MP — Q5](colab_2025/8-Esercitazioni/Simulazione%20d_esame/mobile-price.ipynb#q5)
 * [TI — Titanic](colab_2025/7-Sklearn%20advanced/esercizi/7_home_exercise_titanic.ipynb#titanic)
 * [HD — Q2](colab_2025/8-Esercitazioni/Fairness%20and%20explainability/hiring-decisions.ipynb#q2)
+* [BD — P2 Q1](exams/240910/bank-dropout.ipynb#p2-q1)
 
 #### StandardScaler
 Porta le feature a media 0 e varianza 1. Usato spesso con KNN e SGD.
@@ -111,6 +123,7 @@ Porta le feature a media 0 e varianza 1. Usato spesso con KNN e SGD.
 Scala nell'intervallo [0, 1].
 * [BM — P2 Q4](exams/260108/bank-marketing.ipynb#p2-q4) — su `capital.gain`, `capital.loss`
 * [DI — P2 Q5](exams/250110/diamonds.ipynb#p2-q5) — su `Price`
+* [BD — P2 Q6](exams/240910/bank-dropout.ipynb#p2-q6) — su `Tenure`
 
 #### KBinsDiscretizer
 Discretizza feature continue in N bin. Parametri: `n_bins`, `encode`, `strategy`.
@@ -119,6 +132,7 @@ Discretizza feature continue in N bin. Parametri: `n_bins`, `encode`, `strategy`
 * [LD — P2 Q6](exams/250218/loan-default.ipynb#p2-q6) — su `income`, `loan_amount`, 7 bin
 * [DI — P2 Q5](exams/250110/diamonds.ipynb#p2-q5) — su `Length`, `Width`, `Height`
 * [MP — Q5](colab_2025/8-Esercitazioni/Simulazione%20d_esame/mobile-price.ipynb#q5) — su `mobile_wt`, `battery_power`, 5 bin
+* [BD — P2 Q6](exams/240910/bank-dropout.ipynb#p2-q6) — su `Balance`, `EstimatedSalary`, 6 bin
 
 #### SimpleImputer
 Sostituisce valori nulli con strategia (`mean`, `median`, `most_frequent`).
@@ -135,6 +149,7 @@ Albero di decisione. Parametri chiave: `max_depth`, `min_samples_leaf`, `criteri
 * [HB — P2 Q1](exams/260130/hotel-bookings.ipynb#p2-q1)
 * [DI — P2 Q1](exams/250110/diamonds.ipynb#p2-q1)
 * [MP — Q5](colab_2025/8-Esercitazioni/Simulazione%20d_esame/mobile-price.ipynb#q5)
+* [BD — P2 Q1](exams/240910/bank-dropout.ipynb#p2-q1)
 
 #### ExtraTreeClassifier
 Albero con split casuali (meno overfitting del DecisionTree puro, ma comunque rischia senza `max_depth`).
@@ -147,6 +162,7 @@ Classificatore basato sui K vicini. Parametri: `n_neighbors`, `weights`. Sensibi
 * [BM — P2 Q1](exams/260108/bank-marketing.ipynb#p2-q1)
 * [LD — P2 Q1](exams/250218/loan-default.ipynb#p2-q1)
 * [DI — P2 Q1](exams/250110/diamonds.ipynb#p2-q1)
+* [BD — P2 Q1](exams/240910/bank-dropout.ipynb#p2-q1)
 
 #### RandomForestClassifier
 Ensemble di alberi. Parametri: `n_estimators`, `max_depth`.
@@ -162,6 +178,7 @@ Classificatore che predice sempre la classe piu frequente. Serve come baseline p
 * [BM — P2 Q1](exams/260108/bank-marketing.ipynb#p2-q1)
 * [LD — P2 Q1](exams/250218/loan-default.ipynb#p2-q1)
 * [DI — P2 Q1](exams/250110/diamonds.ipynb#p2-q1)
+* [BD — P2 Q1](exams/240910/bank-dropout.ipynb#p2-q1)
 
 ---
 
@@ -174,6 +191,7 @@ Classificatore che predice sempre la classe piu frequente. Serve come baseline p
 * [LD — P2 Q1](exams/250218/loan-default.ipynb#p2-q1) — binary
 * [DI — P2 Q1](exams/250110/diamonds.ipynb#p2-q1) — weighted
 * [HD — Q3](colab_2025/8-Esercitazioni/Fairness%20and%20explainability/hiring-decisions.ipynb#q3) — binary
+* [BD — P2 Q1](exams/240910/bank-dropout.ipynb#p2-q1) — binary
 
 #### Confusion Matrix / ConfusionMatrixDisplay
 `confusion_matrix` per la matrice raw, `ConfusionMatrixDisplay.from_predictions` o `.from_estimator` per il plot.
@@ -184,11 +202,13 @@ Classificatore che predice sempre la classe piu frequente. Serve come baseline p
 * [MP — Q5](colab_2025/8-Esercitazioni/Simulazione%20d_esame/mobile-price.ipynb#q5) — `ConfusionMatrixDisplay`
 * [TI — Score](colab_2025/7-Sklearn%20advanced/esercizi/7_home_exercise_titanic.ipynb#score-and-visualization) — `ConfusionMatrixDisplay`
 * [HD — Q3](colab_2025/8-Esercitazioni/Fairness%20and%20explainability/hiring-decisions.ipynb#q3) — `ConfusionMatrixDisplay`
+* [BD — P2 Q1](exams/240910/bank-dropout.ipynb#p2-q1) — `ConfusionMatrixDisplay`
 
 #### Cross-validation (`cross_validate`)
 Valutazione k-fold. `cross_validate(model, X, y, cv=10, scoring='f1')`.
 * [LD — P2 Q2](exams/250218/loan-default.ipynb#p2-q2) — cv=10, scoring=`f1`
 * [DI — P2 Q2](exams/250110/diamonds.ipynb#p2-q2) — cv=10, scoring=`f1_weighted`
+* [BD — P2 Q2](exams/240910/bank-dropout.ipynb#p2-q2) — cv=10, scoring=`accuracy`
 
 #### Confronto train vs test (overfitting)
 Confrontare le metriche su train e test per diagnosticare overfitting.
@@ -196,6 +216,7 @@ Confrontare le metriche su train e test per diagnosticare overfitting.
 * [BM — P2 Q1](exams/260108/bank-marketing.ipynb#p2-q1)
 * [LD — P2 Q1](exams/250218/loan-default.ipynb#p2-q1)
 * [DI — P2 Q1](exams/250110/diamonds.ipynb#p2-q1)
+* [BD — P2 Q1](exams/240910/bank-dropout.ipynb#p2-q1)
 
 ---
 
@@ -209,6 +230,8 @@ Confrontare le metriche su train e test per diagnosticare overfitting.
 * [DI — P2 Q4](exams/250110/diamonds.ipynb#p2-q4) — `weights`, `n_neighbors`
 * [MP — Q6](colab_2025/8-Esercitazioni/Simulazione%20d_esame/mobile-price.ipynb#q6) — `selectkbest__k`, `n_bins`, `criterion`, `min_samples_leaf`
 * [TI — GridSearch](colab_2025/7-Sklearn%20advanced/esercizi/7_home_exercise_titanic.ipynb#gridsearch) — `strategy`, `n_estimators`, `max_depth`
+* [BD — P2 Q5](exams/240910/bank-dropout.ipynb#p2-q5) — `criterion`, `max_depth`
+* [BD — P2 Q7](exams/240910/bank-dropout.ipynb#p2-q7) — `svd__n_components`, `preprocessing__discretizer__n_bins`
 
 ---
 
@@ -223,6 +246,7 @@ Confrontare le metriche su train e test per diagnosticare overfitting.
 * [MP — Q5](colab_2025/8-Esercitazioni/Simulazione%20d_esame/mobile-price.ipynb#q5)
 * [TI — Titanic](colab_2025/7-Sklearn%20advanced/esercizi/7_home_exercise_titanic.ipynb#titanic)
 * [HD — Q3](colab_2025/8-Esercitazioni/Fairness%20and%20explainability/hiring-decisions.ipynb#q3)
+* [BD — P2 Q6](exams/240910/bank-dropout.ipynb#p2-q6)
 
 #### ColumnTransformer
 Applica trasformazioni diverse a colonne diverse. `make_column_selector(dtype_include=...)` per selezionare automaticamente.
@@ -236,6 +260,7 @@ Applica trasformazioni diverse a colonne diverse. `make_column_selector(dtype_in
 * [MP — Q5](colab_2025/8-Esercitazioni/Simulazione%20d_esame/mobile-price.ipynb#q5) — `StandardScaler` + `KBinsDiscretizer`
 * [TI — Titanic](colab_2025/7-Sklearn%20advanced/esercizi/7_home_exercise_titanic.ipynb#titanic) — `SimpleImputer` + `OneHotEncoder`
 * [HD — Q3](colab_2025/8-Esercitazioni/Fairness%20and%20explainability/hiring-decisions.ipynb#q3) — `StandardScaler`, rest passthrough
+* [BD — P2 Q6](exams/240910/bank-dropout.ipynb#p2-q6) — `KBinsDiscretizer` + `MinMaxScaler`
 
 #### FeatureUnion (original + SVD)
 `FeatureUnion` combina le feature originali (post-preprocessing) con le componenti SVD.
@@ -258,6 +283,7 @@ Riduzione dimensionale, utile con matrici sparse (dopo OneHotEncoder). Si usa in
 * [LD — P2 Q7](exams/250218/loan-default.ipynb#p2-q7) — standalone + GridSearchCV
 * [DI — P2 Q6](exams/250110/diamonds.ipynb#p2-q6) — in pipeline + GridSearchCV
 * [MP — Q7](colab_2025/8-Esercitazioni/Simulazione%20d_esame/mobile-price.ipynb#q7) — in FeatureUnion + GridSearchCV
+* [BD — P2 Q7](exams/240910/bank-dropout.ipynb#p2-q7) — standalone + GridSearchCV
 
 #### Analisi correlazione con target
 `data.corr()['target']` per trovare le feature piu correlate e usarle per un modello ridotto.
@@ -289,7 +315,9 @@ Attributo degli alberi e dei forest. Restituisce l'importanza Gini/entropy di og
 Confrontare le predizioni del modello filtrate per un attributo sensibile (es. `sex`, `Gender`).
 * [BM — P2 Q2](exams/260108/bank-marketing.ipynb#p2-q2) — ExtraTree, confronto uomini/donne su `income`, aware vs unaware
 * [LD — P2 Q3](exams/250218/loan-default.ipynb#p2-q3) — ExtraTree e KNN, confronto `Gender`
+* [BD — P2 Q3](exams/240910/bank-dropout.ipynb#p2-q3) — DecisionTree, confronto Male/Female su `Gender`, aware vs unaware
 
 #### fairlearn (`MetricFrame`, `demographic_parity_ratio`, `selection_rate`)
 Libreria per analisi di fairness. `MetricFrame` calcola metriche per ogni gruppo, `demographic_parity_ratio` verifica la parita.
 * [HD — Q4](colab_2025/8-Esercitazioni/Fairness%20and%20explainability/hiring-decisions.ipynb#q4) — `MetricFrame`, `demographic_parity_ratio`, modello unaware
+* [BD — P2 Q3](exams/240910/bank-dropout.ipynb#p2-q3) — `MetricFrame`, modello unaware
